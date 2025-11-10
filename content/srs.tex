@@ -1,0 +1,52 @@
+\section{Project Scope}
+The proposed Decentralized Freelance Platform aims to build a transparent, secure, and efficient freelancing ecosystem using blockchain technology. It replaces the traditional centralized intermediaries with smart contracts and decentralized storage, ensuring trustless and tamper-proof project transactions. The system supports essential freelance operations such as job posting, bidding, milestone tracking, escrow payments, and reputation management through blockchain automation.
+
+\section{Functional Requirements}
+\begin{itemize}
+    \item \textbf{User Registration and Authentication:} Users (clients and freelancers) can create accounts and connect their digital wallets (MetaMask) to the platform.
+    \item \textbf{Job Posting and Bidding:} Clients can post project requirements, and freelancers can submit bids and proposals.
+    \item \textbf{Smart Contract Creation:} Upon bid acceptance, a smart contract is generated on the Ethereum network to manage project terms.
+    \item \textbf{Escrow Management:} Client funds are securely held in escrow within the smart contract and automatically released after successful milestone completion.
+    \item \textbf{Milestone Tracking:} Projects are divided into multiple milestones to ensure transparent progress and conditional payments.
+    \item \textbf{File Storage:} Project files and deliverables are stored using IPFS, ensuring decentralized and tamper-proof file storage.
+    \item \textbf{Reputation System:} Ratings and feedback are stored on-chain to maintain transparency and credibility across users.
+    \item \textbf{Transaction Verification:} All transactions and contract events are recorded immutably on the blockchain and retrievable for auditing.
+\end{itemize}
+
+\section{Non-functional Requirements}
+\begin{itemize}
+    \item \textbf{Security:} The platform ensures cryptographic data integrity through SHA-256 hashing and secure wallet-based authentication.
+    \item \textbf{Transparency:} Every project activity, payment, and review is publicly verifiable on the blockchain.
+    \item \textbf{Scalability:} The architecture supports hybrid on-chain/off-chain operations to manage large data volumes efficiently.
+    \item \textbf{Usability:} The user interface is built with React.js and Node.js for an intuitive and responsive user experience.
+    \item \textbf{Availability:} Decentralized infrastructure ensures high system uptime and resilience against single-point failures.
+    \item \textbf{Performance:} The system is optimized for quick querying using The Graph protocol to fetch blockchain data efficiently.
+\end{itemize}
+
+\section{System Requirements}
+\subsection{Hardware Requirements}
+\begin{itemize}
+    \item Minimum 8 GB RAM and Quad-core Processor
+    \item Stable internet connection for blockchain synchronization
+    \item Minimum 2 GB storage for project data and dependencies
+\end{itemize}
+
+\subsection{Software Requirements}
+\begin{itemize}
+    \item Operating System: Windows, Linux, or macOS
+    \item Frontend: React.js
+    \item Backend: Node.js
+    \item Blockchain: Ethereum/Polygon network
+    \item Smart Contract Language: Solidity
+    \item Database: IPFS (for file storage)
+    \item Middleware: The Graph protocol
+    \item Wallet Integration: MetaMask
+\end{itemize}
+
+\section{Assumptions and Dependencies}
+\begin{itemize}
+    \item Users possess basic understanding of cryptocurrency wallets and blockchain transactions.
+    \item Transactions depend on the availability of Ethereum test networks (such as Goerli or Polygon Mumbai).
+    \item Network gas fees may vary depending on blockchain congestion.
+    \item Reliable internet connectivity is required for interacting with decentralized networks.
+\end{itemize}

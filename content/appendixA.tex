@@ -1,0 +1,28 @@
+\appendix
+\chapter{Problem Statement Feasibility Assessment}
+
+\section{Feasibility Analysis}
+The proposed project — \textit{Decentralized Freelance Platform Using Blockchain} — is feasible from both technical and operational perspectives. It integrates blockchain, decentralized storage, and smart contract automation, which are mature and well-supported technologies within the current software ecosystem.
+
+\subsection{Technical Feasibility}
+The platform utilizes existing blockchain frameworks such as Ethereum and Polygon, which support smart contracts and decentralized applications. Since Solidity, React.js, and Node.js are open-source and widely used, the required development tools are readily available. The use of IPFS ensures reliable off-chain storage, while The Graph provides efficient blockchain data indexing. Therefore, the implementation is technically achievable within standard hardware and software constraints.
+
+\subsection{Operational Feasibility}
+The system benefits both freelancers and clients by providing transparent, automated transactions. It aligns with current market trends toward decentralization and digital collaboration. The required blockchain interaction through MetaMask offers a user-friendly interface, ensuring operational ease for non-technical users.
+
+\subsection{Economic Feasibility}
+Since the system is built on open-source technologies and deployable on test networks (e.g., Polygon Mumbai), development and operational costs are minimal. No third-party infrastructure or subscription fees are required. The main costs involve developer effort and optional mainnet deployment gas fees, making the system cost-effective for academic and prototype-level implementation.
+
+\section{Satisfiability and Complexity Classification}
+The platform design adheres to computational feasibility principles in terms of time and space complexity. Smart contract operations are deterministic and bounded by gas limits, ensuring predictable execution.
+
+From a computational theory perspective:
+\begin{itemize}
+    \item The problem of ensuring secure, verifiable payment between untrusted peers can be reduced to a satisfiability problem, where a transaction state must satisfy conditions of completion, verification, and consensus.
+    \item The core verification process of escrow release is a deterministic polynomial-time (P-type) operation as all checks (milestone completion, approval, and dispute expiry) are evaluated using Boolean conditions within smart contract code.
+\end{itemize}
+
+Hence, the system’s computational model is efficient and deterministic, ensuring real-time contract execution and scalability. The decentralized freelancing problem is not NP-hard, as it relies on deterministic smart contract state transitions rather than combinatorial optimization.
+
+\section{Conclusion}
+The project is technically and operationally feasible within the constraints of current blockchain frameworks. The computational model supports deterministic verification and secure automation, ensuring that the proposed system can be effectively implemented, tested, and scaled with minimal complexity.

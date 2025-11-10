@@ -1,0 +1,187 @@
+%Install latex using sudo apt install texlive-extra latexmk
+\documentclass[12pt,a4paper]{report}
+
+% ---------- Packages ----------
+\usepackage[a4paper,top=23.4mm,bottom=32mm,left=37mm,right=23.4mm]{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{tocloft}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{lipsum} % for sample text, remove later
+\usepackage{tabularx}
+
+% ---------- Basic Formatting ----------
+\setstretch{1.5}
+\setlength{\parindent}{5ex}
+\setlength{\parskip}{\baselineskip} % Double line space between paragraphs
+\renewcommand{\baselinestretch}{1.5}
+\renewcommand{\familydefault}{\rmdefault} % Times Roman
+\renewcommand{\contentsname}{\textbf{\MakeUppercase{Table of Contents}}}
+
+% ---------- Section Formatting ----------
+\titleformat{\chapter}[display]
+  {\centering\normalfont\bfseries\fontsize{14pt}{16pt}\selectfont}
+  {\chaptertitlename\ \thechapter}{0pt}{\MakeUppercase}
+\titleformat{\section}
+  {\normalfont\bfseries\fontsize{12pt}{14pt}\selectfont}
+  {\thesection}{1em}{\MakeUppercase}
+\titleformat{\subsection}
+  {\normalfont\bfseries\fontsize{12pt}{14pt}\selectfont}
+  {\thesubsection}{1em}{}
+
+% ---------- Footer ----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\fontsize{10pt}{12pt}\selectfont BSIOTR, Department of Information Technology 2024-25}
+\fancyfoot[R]{\thepage}
+
+% ---------- Hyperlink Styling ----------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+% ---------- Document ----------
+\begin{document}
+
+% ================= COVER PAGE =================
+% \begin{titlepage}
+%     \centering
+%     {\bfseries\Large JSPM’S BHIVARABAI SAWANT INSTITUTE OF TECHNOLOGY \& RESEARCH\\[0.3em]
+%     WAGHOLI, PUNE-412207\\[3em]}
+
+%     {\bfseries\LARGE A PRELIMINARY PROJECT REPORT \\[1em]
+%     ON \\[1em]
+%     \MakeUppercase{DECENTRALIZED FREELANCE PLATFORM USING BLOCKCHAIN}\\[3em]}
+
+%     {\large SUBMITTED TO\\[0.3em]
+%     THE SAVITRIBAI PHULE PUNE UNIVERSITY, PUNE\\[1em]
+%     IN PARTIAL FULFILLMENT OF THE REQUIREMENTS FOR THE AWARD OF THE DEGREE OF\\[0.8em]
+%     \textbf{BACHELOR OF ENGINEERING (INFORMATION TECHNOLOGY)}\\[3em]}
+
+%     \begin{tabular}{ll}
+%         \textbf{Submitted By:} & \\
+%         Student Name 1 & Exam No: XXXXXXX \\
+%         Student Name 2 & Exam No: XXXXXXX \\
+%         Student Name 3 & Exam No: XXXXXXX \\
+%         Student Name 4 & Exam No: XXXXXXX \\
+%     \end{tabular}
+
+%     \vfill
+%     \textbf{Under the Guidance of}\\
+%     Prof. XYZ (Guide Name)\\[2em]
+
+%     {\bfseries DEPARTMENT OF INFORMATION TECHNOLOGY \\[0.5em]
+%     JSPM’S BHIVARABAI SAWANT INSTITUTE OF TECHNOLOGY \& RESEARCH\\
+%     GAT NO. 720/1\&2, NAGAR ROAD, WAGHOLI, PUNE-412207\\
+%     SAVITRIBAI PHULE PUNE UNIVERSITY\\[1em]
+%     2025--2026}
+% \end{titlepage}
+
+% ================= CERTIFICATE PAGE =================
+% \chapter*{\centering CERTIFICATE}
+% \addcontentsline{toc}{chapter}{Certificate}
+% \vspace{2em}
+
+% This is to certify that the project report entitled \textbf{“YOUR PROJECT TITLE GOES HERE”} submitted by:
+
+% \begin{tabular}{ll}
+% Student Name 1 & Exam No: \\
+% Student Name 2 & Exam No: \\
+% Student Name 3 & Exam No: \\
+% Student Name 4 & Exam No: \\
+% \end{tabular}
+
+% are bonafide students of this institute and the work has been carried out by them under the supervision of Prof. A. B. C. It is approved for the partial fulfillment of the requirement of Savitribai Phule Pune University, for the award of the degree of Bachelor of Engineering (Information Technology).
+
+% \vspace{2em}
+
+% \begin{tabular}{p{0.4\textwidth}p{0.4\textwidth}}
+% Prof. A.B.C & Prof. Rekha Kotwal \\
+% Project Guide & Project Coordinator \\
+% \\
+% Dr. Vinod Wadne & Dr. T. K. Nagaraj \\
+% Head of Department & Principal \\
+% \end{tabular}
+
+% \vfill
+% \noindent
+% External Examiner \\
+% Place: Wagholi, Pune \\
+% Date: \_\_\_/ \_\_\_/2025
+
+% ================= ACKNOWLEDGEMENT =================
+% \chapter*{\centering ACKNOWLEDGEMENT}
+% \addcontentsline{toc}{chapter}{Acknowledgement}
+% \lipsum[1] % Replace with actual content
+
+% \begin{flushright}
+% \textbf{(Names of Students)}
+% \end{flushright}
+
+% ================= ABSTRACT =================
+\chapter*{\centering ABSTRACT}
+\addcontentsline{toc}{chapter}{Abstract}
+\input{content/abstract}
+% \noindent
+% \textbf{Keywords:} (add keywords here)
+
+% \lipsum[4-5]
+
+% ================= TABLE OF CONTENTS =================
+\tableofcontents
+\newpage
+
+% ================= CHAPTERS =================
+\chapter{Introduction}
+\input{content/introduction}
+% \section{Motivation}
+% \lipsum[3]
+% \section{Problem Definition}
+% \lipsum[4]
+
+\chapter{Literature Survey}
+\input{content/literature}
+% \lipsum[5]
+
+\chapter{Software Requirements Specification}
+\input{content/srs}
+% \section{Project Scope}
+% \lipsum[6]
+
+\chapter{Architecture and Design}
+\input{content/design}
+
+\chapter{Implementation and modules}
+\input{content/implementation}
+
+\chapter{Advantages, Limitations and applications}
+\input{content/advantages}
+
+\chapter{Evaluation and comparison}
+\input{content/results}
+
+\chapter{Conclusion}
+\input{content/conclusion}
+
+
+% ================= APPENDICES =================
+\appendix
+\input{content/appendixA}
+\input{content/appendixB}
+% \chapter{Plagiarism Report}
+
+% ================= REFERENCES =================
+% \newpage
+% \addcontentsline{toc}{chapter}{References}
+% \begin{thebibliography}{9}
+% \bibitem{ref1} Author Name, \textit{Title of Paper}, Journal Name, Year.
+% \end{thebibliography}
+\input{content/references}
+
+
+\end{document}

@@ -1,0 +1,40 @@
+\section{Introduction}
+This chapter focuses on the actual development and implementation details of the Decentralized Freelance Platform. The system is designed using a modern web technology stack integrated with blockchain components to ensure decentralization, security, and transparency. Each module performs a dedicated role within the architecture, ensuring modularity and scalability.
+
+\section{Technology Stack}
+The project is implemented using a combination of blockchain, web development, and decentralized storage technologies. The following technologies and tools are utilized:
+\begin{itemize}
+    \item \textbf{Frontend:} React.js for building responsive user interfaces.
+    \item \textbf{Backend:} Node.js and Express.js for server-side operations and API management.
+    \item \textbf{Blockchain Network:} Ethereum/Polygon test networks for deploying smart contracts.
+    \item \textbf{Smart Contract Language:} Solidity for defining on-chain logic.
+    \item \textbf{Wallet Integration:} MetaMask for authentication and transaction signing.
+    \item \textbf{File Storage:} IPFS (InterPlanetary File System) for decentralized storage of project files.
+    \item \textbf{Indexing Layer:} The Graph Protocol for efficient blockchain data querying.
+\end{itemize}
+
+\section{System Modules}
+The system consists of several core modules that collectively enable end-to-end decentralized freelancing operations.
+
+\subsection{User Management Module}
+Handles user authentication, wallet connection, and account setup. Each user connects their MetaMask wallet, which acts as a digital identity on the blockchain.
+
+\subsection{Job Management Module}
+Allows clients to post job descriptions, budgets, and deadlines. Freelancers can browse available projects and submit proposals directly through the interface.
+
+\subsection{Smart Contract Module}
+This module deploys Solidity-based smart contracts for each accepted project. It defines the payment terms, milestones, and release conditions in an immutable manner. The contract automatically executes payments upon milestone verification.
+
+\subsection{Escrow and Payment Module}
+Implements a trustless payment system where funds are locked within the contract until successful project completion. Once deliverables are verified by the client, payments are instantly released to the freelancer.
+
+\subsection{File Storage Module}
+Integrates IPFS to manage project deliverables securely. Each file is stored using a unique content hash (CID), ensuring that data remains verifiable and tamper-proof.
+
+\subsection{Reputation and Review Module}
+Enables on-chain feedback and rating mechanisms. Both clients and freelancers can provide reviews that are permanently stored on the blockchain, fostering a transparent reputation system.
+
+\section{Testing and Deployment}
+The platform is deployed and tested on the Polygon Mumbai test network. Unit testing of smart contracts is performed using Hardhat and Truffle frameworks. User interface testing includes wallet connections, project creation, and payment flows. IPFS and The Graph integrations are verified to ensure smooth data retrieval and storage operations.
+
+The final deployment integrates all modules into a functional decentralized web application accessible through standard browsers with MetaMask enabled.
