@@ -1,47 +1,90 @@
 \section{System Architecture}
-The proposed system is designed using a hybrid on-chain/off-chain architecture to balance security, decentralization, and performance. The architecture consists of four primary layers:
+
+The proposed system follows a hybrid on-chain/off-chain architecture that combines the security of blockchain with the scalability of off-chain storage. The architecture is composed of four primary layers as shown in Figure~\ref{fig:architecture}. Each layer performs distinct operations to maintain decentralization, transparency, and performance.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{images/architecture.png}
+    \caption{Overall System Architecture of the Decentralized Freelance Platform}
+    \label{fig:architecture}
+\end{figure}
+
+\noindent The major layers in the architecture are as follows:
 \begin{itemize}
     \item \textbf{Blockchain Layer:} The Ethereum or Polygon blockchain serves as the foundation, hosting all smart contracts responsible for job posting, escrow management, milestone payments, and user reputation tracking. Transactions are validated through a Proof-of-Stake consensus mechanism, ensuring both security and energy efficiency.
-    \item \textbf{Storage Layer:} The InterPlanetary File System (IPFS) is employed for decentralized file storage of proposals, deliverables, and related project documents. This reduces on-chain data load while maintaining data immutability and accessibility.
-    \item \textbf{Application Layer:} The web interface, developed using React.js and Node.js, allows users to interact seamlessly with the blockchain. It includes functionalities such as wallet connection, job management, and milestone tracking.
-    \item \textbf{Indexing Layer:} The Graph protocol is used as a middleware to index blockchain events. It allows the frontend to query blockchain data efficiently and enhances performance by avoiding direct node queries.
+    \item \textbf{Storage Layer:} The InterPlanetary File System (IPFS) is used for decentralized storage of proposals, deliverables, and project documents. This reduces on-chain data load while maintaining immutability and accessibility.
+    \item \textbf{Application Layer:} The web interface, developed using React.js and Node.js, enables users to interact seamlessly with the blockchain. It provides wallet connection, job management, and milestone tracking features.
+    \item \textbf{Indexing Layer:} The Graph protocol is employed to index blockchain events, allowing efficient data queries without directly interacting with blockchain nodes.
 \end{itemize}
 
+\section{Data Flow Diagrams (DFD)}
+
+The Data Flow Diagrams represent the logical flow of information between users, blockchain contracts, and storage systems.
+
+\subsection{DFD Level 0}
+
+Figure~\ref{fig:dfd0} illustrates the Level 0 DFD, which provides an overview of the system as a single process interacting with two external entities — the client and the freelancer. It highlights the high-level flow of data between the main system components.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/dfd0.png}
+    \caption{Level 0 Data Flow Diagram of the System}
+    \label{fig:dfd0}
+\end{figure}
+
+\subsection{DFD Level 1}
+
+Figure~\ref{fig:dfd1} depicts the Level 1 DFD, breaking the system into detailed subprocesses such as project creation, escrow management, milestone handling, and reputation recording. The diagram demonstrates the internal interactions between the application, blockchain smart contracts, and IPFS.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/dfd1.png}
+    \caption{Level 1 Data Flow Diagram showing subsystem interactions}
+    \label{fig:dfd1}
+\end{figure}
+
 \section{Smart Contract Design}
-Smart contracts are written in Solidity to manage the workflow between clients and freelancers. The contract governs:
+
+Smart contracts are developed in Solidity to handle the complete workflow between clients and freelancers. Each contract enforces business logic automatically, ensuring secure and trustless transactions between parties. The main operations include:
+
 \begin{itemize}
-    \item \textbf{Project Creation:} A new smart contract is deployed when a client approves a freelancer’s proposal.
-    \item \textbf{Escrow Logic:} Funds are locked when a project begins and released automatically after milestone approval or upon dispute resolution.
-    \item \textbf{Milestone Payments:} Each project can be divided into multiple milestones, ensuring that payments are conditional and progressive.
-    \item \textbf{Reputation Management:} Post-completion ratings are recorded on-chain, building an immutable reputation profile for each user.
+    \item \textbf{Project Creation:} A new smart contract instance is deployed whenever a client accepts a freelancer’s proposal.
+    \item \textbf{Escrow Logic:} Client funds are locked at the start of a project and are only released upon successful milestone verification.
+    \item \textbf{Milestone Payments:} Projects are divided into multiple milestones, and payments are conditionally released through the function \texttt{releasePayment()}.
+    \item \textbf{Reputation Management:} Ratings and reviews are recorded on-chain, forming an immutable reputation profile for each user.
 \end{itemize}
 
 \section{Algorithms Used}
-The escrow management logic forms the core algorithm of the system:
+
+The escrow management algorithm represents the functional core of the platform. The process ensures fairness and automation in payments without intermediaries.
+
 \begin{enumerate}
-    \item Client initializes a contract by locking agreed funds.
-    \item Freelancer completes the assigned milestone and submits deliverables.
-    \item Client verifies the work and triggers the contract’s \texttt{releasePayment()} function.
-    \item Upon release, funds are transferred automatically to the freelancer’s wallet.
-    \item If disputes arise, funds remain in escrow until the dispute window expires or arbitration resolves the issue.
+    \item Client initializes the smart contract and locks agreed funds.
+    \item Freelancer completes the milestone and submits deliverables.
+    \item Client verifies and triggers \texttt{releasePayment()}.
+    \item Funds are automatically transferred to the freelancer’s wallet.
+    \item In case of disputes, funds remain in escrow until resolution.
 \end{enumerate}
 
-\section{Data Flow}
-The data flow of the platform follows this sequence:
+\section{Data Flow within the System}
+
+The typical data flow during platform operation is summarized below:
 \begin{itemize}
-    \item User interacts with the frontend interface to initiate a transaction.
-    \item Frontend invokes blockchain smart contracts through MetaMask.
-    \item Smart contracts update project state on-chain and emit event logs.
-    \item The Graph middleware indexes events for quick access by the frontend.
-    \item Files are uploaded and retrieved through IPFS using unique content identifiers (CIDs).
+    \item The user interacts with the frontend interface to perform a transaction.
+    \item The frontend communicates with blockchain contracts through MetaMask.
+    \item Smart contracts update the on-chain state and emit event logs.
+    \item The Graph middleware indexes these events for efficient querying.
+    \item Project deliverables and related files are uploaded and retrieved through IPFS using unique content identifiers (CIDs).
 \end{itemize}
 
 \section{System Implementation Plan}
-The implementation proceeds through the following phases:
+
+The development and deployment of the platform proceed in sequential phases:
+
 \begin{enumerate}
-    \item \textbf{Phase 1:} Design and development of user interface and wallet integration.
-    \item \textbf{Phase 2:} Implementation of core smart contracts for escrow and milestone handling.
-    \item \textbf{Phase 3:} Integration of IPFS for decentralized file management.
-    \item \textbf{Phase 4:} Deployment on Polygon test network and functional testing.
-    \item \textbf{Phase 5:} Performance evaluation and comparison with centralized models.
+    \item \textbf{Phase 1:} Design and development of the user interface and wallet integration.
+    \item \textbf{Phase 2:} Implementation of smart contracts for escrow and milestone handling.
+    \item \textbf{Phase 3:} Integration of IPFS for decentralized storage management.
+    \item \textbf{Phase 4:} Deployment and testing on the Polygon Mumbai test network.
+    \item \textbf{Phase 5:} Performance evaluation and comparison with existing centralized systems.
 \end{enumerate}
