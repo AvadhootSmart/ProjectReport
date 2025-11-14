@@ -2,7 +2,7 @@
 \documentclass[12pt,a4paper]{report}
 
 % ---------- Packages ----------
-\usepackage[a4paper,top=23.4mm,bottom=32mm,left=37mm,right=23.4mm]{geometry}
+\usepackage[a4paper,top=25.4mm,bottom=25.4mm,left=25.4mm,right=25.4mm]{geometry}
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
@@ -15,7 +15,7 @@
 \usepackage{float}
 
 % ---------- Basic Formatting ----------
-\setstretch{1.5}
+\setstretch{1.3}
 \setlength{\parindent}{5ex}
 \setlength{\parskip}{\baselineskip} % Double line space between paragraphs
 \renewcommand{\baselinestretch}{1.5}
@@ -34,11 +34,25 @@
   {\thesubsection}{1em}{}
 
 % ---------- Footer ----------
-\renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\headrulewidth}{0pt}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \fancyfoot[C]{\fontsize{10pt}{12pt}\selectfont BSIOTR, Department of Information Technology 2024-25}
+% \fancyfoot[R]{\thepage}
+
+% ---------- Header + Footer ----------
 \pagestyle{fancy}
 \fancyhf{}
-\fancyfoot[C]{\fontsize{10pt}{12pt}\selectfont BSIOTR, Department of Information Technology 2024-25}
-\fancyfoot[R]{\thepage}
+
+% Header
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\fontsize{10pt}{12pt}\selectfont Decentralized Freelance Platform Using Blockchain}
+\fancyhead[R]{\fontsize{10pt}{12pt}\selectfont \thepage}
+
+% Footer
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[R]{\fontsize{10pt}{12pt}\selectfont JSPM's BSIOTR IT Dept}
+
 
 % ---------- Hyperlink Styling ----------
 \hypersetup{
@@ -49,6 +63,7 @@
 
 % ---------- Document ----------
 \begin{document}
+\pagenumbering{roman}
 
 % ================= ACKNOWLEDGEMENT =================
 \input{content/acknowledgement}
@@ -64,17 +79,23 @@
 \chapter*{\centering ABSTRACT}
 \addcontentsline{toc}{chapter}{Abstract}
 \input{content/abstract}
-% \noindent
-% \textbf{Keywords:} (add keywords here)
 
-% \lipsum[4-5]
+\clearpage
+
+% ================= LIST OF FIGURES =================
+\renewcommand{\listfigurename}{\textbf{\MakeUppercase{List of Figures}}}
+\addcontentsline{toc}{chapter}{List of figures}
+\listoffigures
+\newpage
 
 % ================= TABLE OF CONTENTS =================
+\renewcommand{\contentsname}{\textbf{\MakeUppercase{Table of Contents}}}
 \tableofcontents
 \newpage
 
 % ================= CHAPTERS =================
 \chapter{Introduction}
+\pagenumbering{arabic}
 \input{content/introduction}
 % \section{Motivation}
 % \lipsum[3]
